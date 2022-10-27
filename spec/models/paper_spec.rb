@@ -18,7 +18,7 @@ describe "Paper model", type: :model do
     paper = Paper.new(title: "test title", venue: "test value", year: nil)
     expect(paper).to_not be_valid
 
-    paper = Paper.new(title: "test title", venue: "test venue", year: "2000")
+    paper = Paper.new(title: "test title", venue: "test venue", year: "string")
     expect(paper).to_not be_valid
   end
 end
