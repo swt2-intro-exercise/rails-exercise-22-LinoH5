@@ -18,4 +18,15 @@ describe "Index paper page", type: :feature do
 
         expect(Paper.count).to eq(0)
     end
+
+    it "should filter papers by URL parameter (year)" do
+        @paper = FactoryBot.create :paper
+        visit papers_path(year: 1950)
+
+        expect(page).to have_text("COMPUTING MACHINERY AND INTELLIGENCE")
+
+        visit papers_path(year: 1968)
+
+        expect(page).to_not have_text("COMPUTING MACHINERY AND INTELLIGENCE")
+    end
 end
