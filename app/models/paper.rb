@@ -6,4 +6,5 @@ class Paper < ApplicationRecord
                       length: { minimum: 1 }
     validates :year, presence: true,
                      numericality: true
+    scope :written_in, -> (year) { where("year == ?", year)}
 end
